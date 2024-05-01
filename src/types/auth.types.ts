@@ -29,7 +29,7 @@ export interface IAuthUser {
 
 export interface ILoginResponseDTO {
     newToken: string;
-    userInfor: IAuthUser;
+    userInfo: IAuthUser;
 }
 
 export interface IAuthContextState {
