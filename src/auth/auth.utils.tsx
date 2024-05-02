@@ -31,7 +31,7 @@ export const adminAccessRoles = [RolesEnum.OWNER, RolesEnum.ADMIN];
 export const ownerAccessRoles = [RolesEnum.OWNER];
 
 
-// Specify which Roles can be update by Logged-in user
+// Specify which Roles can be updated by Logged-in user
 export const allowedRolesForUpdateArray = (loggedInUser?: IAuthUser): string[] => {
     return loggedInUser?.roles.includes(RolesEnum.OWNER) ?
         [RolesEnum.ADMIN, RolesEnum.MANAGER, RolesEnum.USER] :

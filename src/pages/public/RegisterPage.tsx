@@ -88,47 +88,47 @@ const RegisterPage = () => {
                 <InputField
                     control={control}
                     label='First Name'
-                    inputName={'firstName'}
+                    inputName='firstName'
                     error={errors.firstName?.message}
                 />
 
                 <InputField
                     control={control}
                     label='Last Name'
-                    inputName={'lastName'}
+                    inputName='lastName'
                     error={errors.lastName?.message}
                 />
 
                 <InputField
                     control={control}
                     label='User Name'
-                    inputName={'userName'}
+                    inputName='userName'
                     error={errors.userName?.message}
                 />
 
                 <InputField
                     control={control}
                     label='Email'
-                    inputName={'email'}
+                    inputName='email'
                     error={errors.email?.message}
                 />
 
                 <InputField
                     control={control}
                     label='Password'
-                    inputName={'password'}
+                    inputName='password'
                     error={errors.password?.message}
                 />
 
                 <InputField
                     control={control}
                     label='Address'
-                    inputName={'address'}
+                    inputName='address'
                     error={errors.address?.message}
                 />
 
                 <div className='px-4 mt-2 mb-6 w-9/12 flex gap-2'>
-                    <h1>Already have an account</h1>
+                    <h1>Already have an account?</h1>
                     <Link
                         to={PATH_PUBLIC.login}
                         className='text-[754eb4] border border-[754eb4] hover:shadow-[0_0_5px_2px_#754eb44c] px-3 rounded-2xl duration-200'
