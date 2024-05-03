@@ -1,4 +1,4 @@
-import { PATH_PUBLIC, PATH_DASHBOARD } from "../routes/paths";
+import {PATH_PUBLIC, PATH_DASHBOARD} from "../routes/paths";
 
 // URLS 
 export const HOST_API_KEY = 'https://localhost:7134/apdsys';
@@ -9,8 +9,8 @@ export const ME_URL = '/Auth/me';
 export const USERS_LIST_URL = '/Auth/users';
 export const UPDATE_ROLE_URL = '/Auth/update-role';
 export const USERNAMES_LIST_URL = '/Auth/usernames';
-export const ALL_MESSAGES_URL = '/Auth/all-messages';
 
+export const ALL_MESSAGES_URL = '/Messages';
 export const CREATE_MESSAGE_URL = '/Messages/create';
 export const MY_MESSAGE_URL = '/Messages/mine';
 
