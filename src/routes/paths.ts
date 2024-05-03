@@ -9,7 +9,7 @@ export const PATH_PUBLIC = {
 export const PATH_DASHBOARD = {
     dashboard: '/dashboard',
     usersManagement: '/dashboard/users-management',
-    updateRole: '/dashboard/update-role/:username',
+    updateRole: '/dashboard/update-role/:userName',
     sendMessage: '/dashboard/send-message',
     inbox: '/dashboard/inbox',
     allMessages: '/dashboard/all-messages',
