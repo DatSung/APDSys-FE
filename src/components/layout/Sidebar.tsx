@@ -90,6 +90,13 @@ const Sidebar = () => {
                 variant='secondary'
             />
 
+            <Button
+                label='User Page'
+                onClick={() => handleClick(PATH_DASHBOARD.user)}
+                type='button'
+                variant='secondary'
+            />
+
         </div>
     );
 };
