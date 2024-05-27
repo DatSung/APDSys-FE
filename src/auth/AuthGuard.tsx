@@ -15,7 +15,7 @@ const AuthGuard = ({roles}: IProps) => {
 
     // Check access to decide which component will be rendered.
     const hasAccess = isAuthenticated && user?.roles?.find(x => roles.includes(x))
-
+    
     if (isAuthLoading) {
         return <AuthSpinner></AuthSpinner>;
     }

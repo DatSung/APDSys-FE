@@ -1,19 +1,21 @@
 import * as Yup from 'yup';
-import {useForm} from "react-hook-form";
+import { useForm } from "react-hook-form";
 import InputField from "../../components/general/InputField.tsx";
-import {yupResolver} from "@hookform/resolvers/yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 import useAuth from "../../hooks/useAuth.hook.ts";
 import Button from "../../components/general/Button.tsx";
 import toast from "react-hot-toast";
-import {useState} from "react";
-import {Link} from "react-router-dom";
-import {PATH_PUBLIC} from "../../routes/paths.ts";
-import {ILoginDTO} from "../../types/auth.types.ts";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { PATH_PUBLIC } from "../../routes/paths.ts";
+import { ILoginDTO } from "../../types/auth.types.ts";
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import auth from '../../firebase/firebaseConfig.ts';
 
 const LoginPage = () => {
 
     const [loading, setLoading] = useState<boolean>(false);
-    const {login} = useAuth();
+    const { login } = useAuth();
 
     const loginSchema = Yup.object().shape({
         userName: Yup.string().required("Username is required"),
@@ -23,7 +25,7 @@ const LoginPage = () => {
     const {
         control,
         handleSubmit,
-        formState: {errors},
+        formState: { errors },
         reset,
     } = useForm<ILoginDTO>({
 
@@ -35,6 +37,14 @@ const LoginPage = () => {
         }
     });
 
+    const handleGoogle = async () => {
+        const provider = await new GoogleAuthProvider();
+        const result = await signInWithPopup(auth, provider);
+
+        const token = result.user?.getIdTokenResult();
+        console.log(token);
+    }
+
     const onSubmitLoginForm = async (data: ILoginDTO) => {
         try {
             setLoading(true);
@@ -43,7 +53,7 @@ const LoginPage = () => {
         } catch (error) {
             setLoading(false);
             const err = error as { data: string; status: number }
-            const {status} = err;
+            const { status } = err;
 
             if (status === 401) {
                 toast.error('Invalid username or password');
@@ -120,6 +130,8 @@ const LoginPage = () => {
                         loading={loading}
                     />
                 </div>
+
+                <button onClick={handleGoogle}>Login with Google</button>
 
             </form>
 
